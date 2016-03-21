@@ -1,5 +1,5 @@
 group 'it.xabaras.android.logger'
-version '1.0'
+version '1.2'
 
 def androidSdkdir = System.properties['user.home'] + '/adt-bundle-mac/sdk/'
 def androidSdktarget = 8
