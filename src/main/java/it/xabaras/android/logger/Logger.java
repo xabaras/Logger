@@ -3,7 +3,7 @@ package it.xabaras.android.logger;
 import android.util.Log;
 
 /***
- * Logger v. 1.3
+ * Logger v. 1.3.5
  * 
  * This is a simple class wrapping android logger introducing some utilities
  * 
@@ -13,96 +13,96 @@ import android.util.Log;
  */
 public class Logger {
 	
-	public static void d(String tag, Exception e) {
-		Log.d(tag, getMessage(e));
+	public static void d(String tag, Throwable t) {
+		Log.d(tag, getMessage(t));
 	}
 	
 	public static void d(String tag, String msg) {
 		Log.d(tag, msg);
 	}
 	
-	public static void d(Object o, Exception e) {
+	public static void d(Object o, Throwable t) {
 		String tag = o != null ? o.getClass().getSimpleName() : "";
-		Log.d(tag, getMessage(e));
+		Log.d(tag, getMessage(t));
 	}
 	
-	public static void e(String tag, Exception e) {
-		Log.e(tag, getMessage(e));
+	public static void e(String tag, Throwable t) {
+		Log.e(tag, getMessage(t));
 	}
 
 	public static void e(String tag, String msg) {
 		Log.e(tag, msg);
 	}
 	
-	public static void e(Object o, Exception e) {
+	public static void e(Object o, Throwable t) {
 		String tag = o != null ? o.getClass().getSimpleName() : "";
-		Log.e(tag, getMessage(e));
+		Log.e(tag, getMessage(t));
 	}
 	
-	public static void i(String tag, Exception e) {
-		Log.i(tag, getMessage(e));
+	public static void i(String tag, Throwable t) {
+		Log.i(tag, getMessage(t));
 	}
 	
 	public static void i(String tag, String msg) {
 		Log.i(tag, msg);
 	}
 	
-	public static void i(Object o, Exception e) {
+	public static void i(Object o, Throwable t) {
 		String tag = o != null ? o.getClass().getSimpleName() : "";
-		Log.i(tag, getMessage(e));
+		Log.i(tag, getMessage(t));
 	}
 	
-	public static void v(String tag, Exception e) {
-		Log.v(tag, getMessage(e));
+	public static void v(String tag, Throwable t) {
+		Log.v(tag, getMessage(t));
 	}
 	
 	public static void v(String tag, String msg) {
 		Log.v(tag, msg);
 	}
 	
-	public static void v(Object o, Exception e) {
+	public static void v(Object o, Throwable t) {
 		String tag = o != null ? o.getClass().getSimpleName() : "";
-		Log.v(tag, getMessage(e));
+		Log.v(tag, getMessage(t));
 	}
 	
-	public static void w(String tag, Exception e) {
-		Log.w(tag, getMessage(e));
+	public static void w(String tag, Throwable t) {
+		Log.w(tag, getMessage(t));
 	}
 	
 	public static void w(String tag, String msg) {
 		Log.w(tag, msg);
 	}
 	
-	public static void w(Object o, Exception e) {
+	public static void w(Object o, Throwable t) {
 		String tag = o != null ? o.getClass().getSimpleName() : "";
-		Log.w(tag, getMessage(e));
+		Log.w(tag, getMessage(t));
 	}
 	
-	public static void wtf(String tag, Exception e) {
-		Log.wtf(tag, getMessage(e));
+	public static void wtf(String tag, Throwable t) {
+		Log.wtf(tag, getMessage(t));
 	}
 	
 	public static void wtf(String tag, String msg) {
 		Log.wtf(tag, msg);
 	}
 	
-	public static void wtf(Object o, Exception e) {
+	public static void wtf(Object o, Throwable t) {
 		String tag = o != null ? o.getClass().getSimpleName() : "";
-		Log.wtf(tag, getMessage(e));
+		Log.wtf(tag, getMessage(t));
 	}
 	
-	private static String getMessage(Exception e ) {
-		String message = e.getClass().toString().replaceAll("class ", "") + ": No message";
+	private static String getMessage(Throwable t ) {
+		String message = t.getClass().toString().replaceAll("class ", "") + ": No message";
 		
 		try {
 		
-			if ( e.getMessage() != null ) {
-				message = e.getMessage();
-			} else if ( e.getCause() != null && e.getCause().getMessage() != null  ) {
-				message = e.getClass().toString().replaceAll("class ", "") + " Caused by " + e.getCause().getClass().toString().replaceAll("class ", "") + ": " + e.getCause().getMessage();
+			if ( t.getMessage() != null ) {
+				message = t.getMessage();
+			} else if ( t.getCause() != null && t.getCause().getMessage() != null  ) {
+				message = t.getClass().toString().replaceAll("class ", "") + " Caused by " + t.getCause().getClass().toString().replaceAll("class ", "") + ": " + t.getCause().getMessage();
 			}
 			
-		} catch(Throwable t){}
+		} catch(Throwable t1){}
 		
 		return message;
 	}
