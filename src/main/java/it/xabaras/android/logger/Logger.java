@@ -3,7 +3,7 @@ package it.xabaras.android.logger;
 import android.util.Log;
 
 /***
- * Logger v. 1.2
+ * Logger v. 1.3
  * 
  * This is a simple class wrapping android logger introducing some utilities
  * 
@@ -14,7 +14,7 @@ import android.util.Log;
 public class Logger {
 	
 	public static void d(String tag, Exception e) {
-		Log.d(tag, e.getMessage() != null ? e.getMessage() : e.getClass().toString() + ": No message");
+		Log.d(tag, getMessage(e));
 	}
 	
 	public static void d(String tag, String msg) {
@@ -23,11 +23,11 @@ public class Logger {
 	
 	public static void d(Object o, Exception e) {
 		String tag = o != null ? o.getClass().getSimpleName() : "";
-		Log.d(tag, e.getMessage() != null ? e.getMessage() : e.getClass().toString() + ": No message");
+		Log.d(tag, getMessage(e));
 	}
 	
 	public static void e(String tag, Exception e) {
-		Log.e(tag, e.getMessage() != null ? e.getMessage() : e.getClass().toString() + ": No message");
+		Log.e(tag, getMessage(e));
 	}
 
 	public static void e(String tag, String msg) {
@@ -36,11 +36,11 @@ public class Logger {
 	
 	public static void e(Object o, Exception e) {
 		String tag = o != null ? o.getClass().getSimpleName() : "";
-		Log.e(tag, e.getMessage() != null ? e.getMessage() : e.getClass().toString() + ": No message");
+		Log.e(tag, getMessage(e));
 	}
 	
 	public static void i(String tag, Exception e) {
-		Log.i(tag, e.getMessage() != null ? e.getMessage() : e.getClass().toString() + ": No message");
+		Log.i(tag, getMessage(e));
 	}
 	
 	public static void i(String tag, String msg) {
@@ -49,11 +49,11 @@ public class Logger {
 	
 	public static void i(Object o, Exception e) {
 		String tag = o != null ? o.getClass().getSimpleName() : "";
-		Log.i(tag, e.getMessage() != null ? e.getMessage() : e.getClass().toString() + ": No message");
+		Log.i(tag, getMessage(e));
 	}
 	
 	public static void v(String tag, Exception e) {
-		Log.v(tag, e.getMessage() != null ? e.getMessage() : e.getClass().toString() + ": No message");
+		Log.v(tag, getMessage(e));
 	}
 	
 	public static void v(String tag, String msg) {
@@ -62,11 +62,11 @@ public class Logger {
 	
 	public static void v(Object o, Exception e) {
 		String tag = o != null ? o.getClass().getSimpleName() : "";
-		Log.v(tag, e.getMessage() != null ? e.getMessage() : e.getClass().toString() + ": No message");
+		Log.v(tag, getMessage(e));
 	}
 	
 	public static void w(String tag, Exception e) {
-		Log.w(tag, e.getMessage() != null ? e.getMessage() : e.getClass().toString() + ": No message");
+		Log.w(tag, getMessage(e));
 	}
 	
 	public static void w(String tag, String msg) {
@@ -75,11 +75,11 @@ public class Logger {
 	
 	public static void w(Object o, Exception e) {
 		String tag = o != null ? o.getClass().getSimpleName() : "";
-		Log.w(tag, e.getMessage() != null ? e.getMessage() : e.getClass().toString() + ": No message");
+		Log.w(tag, getMessage(e));
 	}
 	
 	public static void wtf(String tag, Exception e) {
-		Log.wtf(tag, e.getMessage() != null ? e.getMessage() : e.getClass().toString() + ": No message");
+		Log.wtf(tag, getMessage(e));
 	}
 	
 	public static void wtf(String tag, String msg) {
@@ -88,6 +88,22 @@ public class Logger {
 	
 	public static void wtf(Object o, Exception e) {
 		String tag = o != null ? o.getClass().getSimpleName() : "";
-		Log.wtf(tag, e.getMessage() != null ? e.getMessage() : e.getClass().toString() + ": No message");
+		Log.wtf(tag, getMessage(e));
+	}
+	
+	private static String getMessage(Exception e ) {
+		String message = e.getClass().toString().replaceAll("class ", "") + ": No message";
+		
+		try {
+		
+			if ( e.getMessage() != null ) {
+				message = e.getMessage();
+			} else if ( e.getCause() != null && e.getCause().getMessage() != null  ) {
+				message = e.getClass().toString().replaceAll("class ", "") + " Caused by " + e.getCause().getClass().toString().replaceAll("class ", "") + ": " + e.getCause().getMessage();
+			}
+			
+		} catch(Throwable t){}
+		
+		return message;
 	}
 }
