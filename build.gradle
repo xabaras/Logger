@@ -8,6 +8,17 @@ apply plugin: 'java'
 
 sourceCompatibility = 1.6
 
+jar {
+    manifest {
+        attributes(
+                "Created-By": "Paolo Montalto",
+                "Specification-Title": "Logger",
+                "Implementation-Title": 'it.xabaras.android.logger',
+                "Implementation-Version": version
+        )
+    }
+}
+
 repositories {
     mavenCentral()
 }
