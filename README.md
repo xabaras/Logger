@@ -1,3 +1,4 @@
+#Logger#
 Is a simple class wrapping android logger introducing some utilities.
 
 Logger supports all android log levels (VERBOSE, INFO, WARNING, DEBUG, ERROR, WTF) and handles error prone cases such as Exceptions with no message.
