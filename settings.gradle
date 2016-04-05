@@ -1,1 +1,8 @@
 rootProject.name = 'Logger'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
+
