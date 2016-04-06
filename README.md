@@ -4,9 +4,21 @@ Is a simple class wrapping android logger introducing some utilities.
 Logger supports all android log levels (VERBOSE, INFO, WARNING, DEBUG, ERROR, WTF) and handles error prone cases such as Exceptions with no message.
 
 ## How do I get set up? ##
-Download the [latest JAR](https://github.com/xabaras/Logger/releases/latest) and add it to your project's libraries.
+Get it via Gradle
+```groovy
+compile 'it.xabaras.android.logger:Logger:1.3.5'
+```
+or Maven
+```xml
+<dependency>
+	<groupId>it.xabaras.android.logger</groupId>
+	<artifactId>Logger</artifactId>
+	<version>1.3.5</version>
+	<type>pom</type>
+</dependency>
+```
 
-Soon you will be able to get it via maven or gradle
+Or download the [latest JAR](https://github.com/xabaras/Logger/releases/latest) and add it to your project's libraries.
 
 ## Usage ##
 Logger is simple to use, you just have to call static methods from the Logger class.
