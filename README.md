@@ -6,14 +6,14 @@ Logger supports all android log levels (VERBOSE, INFO, WARNING, DEBUG, ERROR, WT
 ## How do I get set up? ##
 Get it via Gradle
 ```groovy
-compile 'it.xabaras.android.logger:Logger:1.3.5'
+compile 'it.xabaras.android.logger:Logger:1.3.6'
 ```
 or Maven
 ```xml
 <dependency>
 	<groupId>it.xabaras.android.logger</groupId>
 	<artifactId>Logger</artifactId>
-	<version>1.3.5</version>
+	<version>1.3.6</version>
 	<type>pom</type>
 </dependency>
 ```
@@ -56,6 +56,15 @@ try {
   // Your code
 } catch(Exception e) {
   Logger.e(this, e);
+}
+```
+#### (Object o, String msg) methods ###
+Take an Object and a String as parameters, use the object class name as tag and log the message
+```java
+try {
+  // Your code
+} catch(Exception e) {
+  Logger.e(this, "We're sorry! An Exception occurred.");
 }
 ```
 
