@@ -94,6 +94,32 @@ publishing {
             version version
             artifact sourcesJar
             artifact javadocJar
+            pom.withXml {
+                asNode().children().last() +  {
+                    resolveStrategy = Closure.DELEGATE_FIRST
+                    name bintray.pkg.name
+                    description bintray.pkg.desc
+                    url bintray.pkg.websiteUrl
+                    scm {
+                        url bintray.pkg.vcsUrl
+                    }
+
+                    licenses {
+                        license {
+                            name 'The Apache Software License, Version 2.0'
+                            url 'http://www.apache.org/license/LICENSE-2.0.txt'
+                            distribution 'repo'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id 'xabaras'
+                            name 'Paolo Montalto'
+                            email 'webmaster@xabaras.it'
+                        }
+                    }
+                }
+            }
         }
     }
 }
