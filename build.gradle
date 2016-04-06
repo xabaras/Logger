@@ -68,13 +68,13 @@ bintray {
         githubReleaseNotesFile = 'README.md' //Optional Github readme file
 
         version {
-            name = version
-            desc = 'Logger ' + version
+            name = project['version']
+            desc = 'Logger ' + project['version']
             gpg {
                 sign = true //Determines whether to GPG sign the files. The default is false
                 passphrase = properties.getProperty('bintray_gpg_password') //Optional. The passphrase for GPG signing'
             }
-            vcsTag = 'v' + version
+            vcsTag = 'v' + project['version']
             mavenCentralSync {
                 sync = false //Optional (true by default). Determines whether to sync the version to Maven Central.
                 user = properties.getProperty('oss_user') //OSS user token
