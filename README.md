@@ -3,6 +3,10 @@ Is a simple class wrapping android logger introducing some utilities.
 
 Logger supports all android log levels (VERBOSE, INFO, WARNING, DEBUG, ERROR, WTF) and handles error prone cases such as Exceptions with no message.
 
+[ ![Methods count](https://img.shields.io/badge/Methods count-42-e91e63.svg)](http://www.methodscount.com/?lib=it.xabaras.android.logger%3ALogger%3A1.3.6)
+[ ![Size](https://img.shields.io/badge/Size-3KB-e91e63.svg)](http://www.methodscount.com/?lib=it.xabaras.android.logger%3ALogger%3A1.3.6)
+[ ![Download](https://api.bintray.com/packages/xabaras/maven/Logger/images/download.svg) ](https://bintray.com/xabaras/maven/Logger/_latestVersion)
+
 ## How do I get set up? ##
 Get it via Gradle
 ```groovy
