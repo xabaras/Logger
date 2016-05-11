@@ -52,9 +52,10 @@ Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 bintray {
-    user = properties.getProperty('bintray_user')
-    key = properties.getProperty('bintray_api_key')
+    user = properties.getProperty('bintray.user')
+    key = properties.getProperty('bintray.apiKey')
     publications = ['mavenStuff']
+    dryRun = true
     pkg {
         repo = 'maven'
         name = 'Logger'
@@ -72,13 +73,13 @@ bintray {
             desc = 'Logger ' + project['version']
             gpg {
                 sign = true //Determines whether to GPG sign the files. The default is false
-                passphrase = properties.getProperty('bintray_gpg_password') //Optional. The passphrase for GPG signing'
+                passphrase = properties.getProperty('bintray.gpg.password') //Optional. The passphrase for GPG signing'
             }
             vcsTag = 'v' + project['version']
             mavenCentralSync {
                 sync = false //Optional (true by default). Determines whether to sync the version to Maven Central.
-                user = properties.getProperty('oss_user') //OSS user token
-                password = properties.getProperty('oss_password') //OSS user password
+                user = properties.getProperty('oss.user') //OSS user token
+                password = properties.getProperty('oss.password') //OSS user password
                 close = '1' //Optional property. By default the staging repository is closed and artifacts are released to Maven Central. You can optionally turn this behaviour off (by puting 0 as value) and release the version manually.
             }
         }
@@ -115,7 +116,7 @@ publishing {
                         developer {
                             id 'xabaras'
                             name 'Paolo Montalto'
-                            email 'webmaster@xabaras.it'
+                            email 'p.montalto@xabaras.it'
                         }
                     }
                 }

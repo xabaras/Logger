@@ -5,7 +5,7 @@ import android.util.Log;
 /***
  * This is a simple class wrapping android logger introducing some utilities
  * 
- * @author Paolo Montalto &lt;webmaster@xabaras.it&gt;
+ * @author Paolo Montalto &lt;p.montalto@xabaras.it&gt;
  *
  */
 public class Logger {
