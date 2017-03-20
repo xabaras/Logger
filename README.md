@@ -72,7 +72,7 @@ try {
 }
 ```
 
-##Proguard##
+## Proguard ##
 You can add the following lines to your app's proguard configuration file to enforce security (avoid adding logging methods to released app):
 ```proguard
 -assumenosideeffects class it.xabaras.android.logger.Logger {
