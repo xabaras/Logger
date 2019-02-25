@@ -55,7 +55,7 @@ bintray {
     user = properties.getProperty('bintray.user')
     key = properties.getProperty('bintray.apiKey')
     publications = ['mavenStuff']
-    dryRun = true
+
     pkg {
         repo = 'maven'
         name = 'Logger'
