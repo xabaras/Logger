@@ -10,7 +10,7 @@ Logger supports all android log levels (VERBOSE, INFO, WARNING, DEBUG, ERROR, WT
 ## How do I get set up? ##
 Get it via Gradle
 ```groovy
-compile 'it.xabaras.android.logger:Logger:1.3.6'
+implementation 'it.xabaras.android.logger:Logger:1.3.6'
 ```
 or Maven
 ```xml
